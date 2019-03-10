@@ -1,4 +1,5 @@
 import turtle
+from turtle import *
 import os
 wn = turtle.Screen()
 wn.bgcolor("black")
@@ -37,9 +38,16 @@ def move_right(event):
 	x += playerspeed 
 	if x > 280: 
 		x = 280 
-	player.setx(x) 
+	player.setx(x)
+def clicked(x,y):
+	print("You clicked",x,",",y)
+	column = (x+300) // 200
+	row = (-y+300) // 200
+	square = column +row*3
+	print("You ",x,",",y,"s",square)
+onscreenclick(clicked)
 #Keybinding 
 turtle.listen() 
 turtle.getcanvas().bind("<Left>", move_left) 
-turtle.getcanvas().bind("<Right>", move_right) 
+turtle.getcanvas().bind("<Right>", move_right)
 turtle.mainloop()
